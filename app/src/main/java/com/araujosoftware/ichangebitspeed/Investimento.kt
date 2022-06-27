@@ -1,6 +1,7 @@
 package com.araujosoftware.ichangebitspeed
 
 open class Investimento {
+    
     private var nome:String=""
     private var bruto: Double=0.0
     private var liquido:Double=0.0
@@ -9,6 +10,7 @@ open class Investimento {
     private var lucro:Double=0.0
     private var pontos:Double=0.0
     private var milhas:Double=0.0
+
     private var diasDeTrabalho:Double=0.0
     private var horasDeTrabalho:Double=0.0
     private var precoDaHora:Double=0.0
@@ -16,7 +18,13 @@ open class Investimento {
     private var precoDoLitro:Double=0.0
     private var autonomiaDoVeiculo:Double=0.1
     private var distanciaPercorrida:Double=0.0
+
     private var pensaoAlimenticia:Double=1200.0
+
+    /** Indicadores economicos*/
+    private var taxaSelic:Double=13.2
+    private var ipca:Double=10.5
+    private var igpm:Double=12.7
 
     fun setNome(novo:String){
         this.nome=novo
