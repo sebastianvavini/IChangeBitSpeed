@@ -1,23 +1,27 @@
 package com.araujosoftware.ichangebitspeed
 
-class Eu {
+class Eu : Investimento() {
 
-    private var nome:String=""
-    private var acumulado: Double=0.0
-    private var liquido:Double=0.0
-    private var precoDeCompra:Double=0.0
-    private var precoDeVenda:Double=0.0
-    private var lucro:Double=0.0
-    private var pontos:Double=0.0
-    private var milhas:Double=0.0
-    private var diasDeTrabalho:Double=0.0
-    private var horasDeTrabalho:Double=0.0
-    private var precoDaHora:Double=0.0
-    private var qtdLitrosComprados:Double=0.0
-    private var precoDoLitro:Double=0.0
-    private var autonomiaDoVeiculo:Double=0.1
-    private var distanciaPercorrida:Double=0.0
-    private var pensaoAlimenticia:Double=1200.0
+    /** Lista de Habilidades*/
+    private var hab1 : Habilidade= Habilidade("Programação em Kótlin")
+    private var hab2: Habilidade= Habilidade("Matemática")
+    private var hab3:Habilidade= Habilidade("Tocar bateria")
+
+    /** Lista de Compromissos*/
+    private var pensaoAlimenticia:Compromisso= Compromisso("Pensao Alimenticia","dia 1, julho")
+    private var compromisso2:Compromisso=Compromisso("Pagamento da Fatura Nubank","")
+
+    /** Lista de Pertences*/
+    private var carro:Pertence= Pertence()
+    private var notebook:Pertence= Pertence()
+
+   /** Lista de Amigos*/
+    private var amigo1:Eu= Eu()
+    private var amigo2:Eu= Eu()
+    private var amigo3:Eu= Eu()
+
+
+
 
     fun iNeed(){
 

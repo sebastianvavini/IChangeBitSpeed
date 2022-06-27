@@ -1,8 +1,8 @@
 package com.araujosoftware.ichangebitspeed
 
-class Investimento {
+open class Investimento {
     private var nome:String=""
-    private var acumulado: Double=0.0
+    private var bruto: Double=0.0
     private var liquido:Double=0.0
     private var precoDeCompra:Double=0.0
     private var precoDeVenda:Double=0.0
@@ -27,7 +27,7 @@ class Investimento {
     fun calculaTotais(){
         precoDeVenda= diasDeTrabalho*horasDeTrabalho*precoDaHora
         precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida/autonomiaDoVeiculo
-        this.acumulado=precoDeCompra-precoDeVenda
+        this.bruto= precoDeVenda - precoDeCompra
         this.liquido=precoDeVenda-precoDeCompra-pensaoAlimenticia
 
     }
@@ -64,7 +64,7 @@ class Investimento {
         return this.nome
     }
     fun getAcumulado():Double{
-        return this.acumulado
+        return this.bruto
     }
     fun getLiquido():Double{
         return this.liquido

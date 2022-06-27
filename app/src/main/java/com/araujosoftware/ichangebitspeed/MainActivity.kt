@@ -9,6 +9,7 @@ import com.araujosoftware.ichangebitspeed.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var binding: ActivityMainBinding
 
+
     private lateinit var nome: EditText
     private lateinit var acumulado: EditText
     private lateinit var liquido: EditText
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         nome = binding.editTextNome
-        acumulado = binding.editTextAcumulado
+        acumulado = binding.editTextBruto
         liquido = binding.editTextLiquido
         precoCompra = binding.editTextPrecoDeCompra
         precoVenda = binding.editTextPrecoDeVenda
