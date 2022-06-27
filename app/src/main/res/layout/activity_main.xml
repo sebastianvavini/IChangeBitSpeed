@@ -227,6 +227,7 @@
         android:textSize="20dp"
         android:text="ONDE INVISTO A MINHA ATENÇÃO ?"
         android:textColor="@color/yellow" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="350dp"
@@ -287,7 +288,6 @@
 
                     android:enabled="false"
                     android:inputType="numberDecimal" />
-
 
 
             </LinearLayout>
@@ -369,13 +369,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_preco_de_venda"
                     android:text="Lucro" />
+
                 <EditText
                     android:id="@+id/edit_text_lucro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="lucro"
                     android:gravity="center"
+                    android:hint="lucro"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
@@ -397,8 +398,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Pontos"
                     android:gravity="center"
+                    android:hint="Pontos"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
@@ -470,6 +471,7 @@
                     android:hint="Horas de Trabalho"
                     android:inputType="numberDecimal" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -511,9 +513,9 @@
                     android:id="@+id/edit_text_trajeto_kms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Trajeto em KMs"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:hint="Trajeto em KMs"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
@@ -560,12 +562,13 @@
                     android:id="@+id/edit_text_litros_comprados"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="0000"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:hint="0000"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -584,12 +587,13 @@
                     android:id="@+id/edit_text_qtd_unidades"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="0000"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:hint="0000"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -608,12 +612,13 @@
                     android:id="@+id/edit_text_preco_por_litro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="0.00"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:hint="0.00"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -631,12 +636,13 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Upload de Audio"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:hint="Upload de Audio"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -655,8 +661,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Upload de Video"
-                    android:inputType="numberDecimal"
-                    />
+                    android:inputType="numberDecimal" />
 
             </LinearLayout>
 
