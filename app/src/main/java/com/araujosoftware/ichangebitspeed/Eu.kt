@@ -9,16 +9,16 @@ class Eu : Investimento() {
 
     /** Lista de Compromissos*/
     private var pensaoAlimenticia:Compromisso= Compromisso("Pensao Alimenticia","dia 1, julho")
-    private var compromisso2:Compromisso=Compromisso("Pagamento da Fatura Nubank","")
-
+    private var creditoNubank:Compromisso=Compromisso("Pagamento da Fatura Nubank","")
+    private var consignadoBB:Compromisso=Compromisso("consignado","74 vezes de R$ 1561,75")
     /** Lista de Pertences*/
     private var carro:Pertence= Pertence()
     private var notebook:Pertence= Pertence()
 
-   /** Lista de Amigos*/
-    private var amigo1:Eu= Eu()
-    private var amigo2:Eu= Eu()
-    private var amigo3:Eu= Eu()
+   /** Lista de "amigos" (Investimentos)*/
+    private var investimento1:Eu= Eu()
+    private var investimento2:Eu= Eu()
+    private var investimento3:Eu= Eu()
 
 
 
@@ -30,6 +30,10 @@ class Eu : Investimento() {
 
     }
     fun iDonated(){
+
+    }
+
+    fun somarInvestimentos(){
 
     }
 }

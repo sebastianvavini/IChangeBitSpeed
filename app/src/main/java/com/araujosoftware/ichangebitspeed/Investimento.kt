@@ -36,7 +36,7 @@ open class Investimento {
         precoDeVenda= diasDeTrabalho*horasDeTrabalho*precoDaHora
         precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida/autonomiaDoVeiculo
         this.bruto= precoDeVenda - precoDeCompra
-        this.liquido=precoDeVenda-precoDeCompra-pensaoAlimenticia
+        this.liquido=precoDeVenda-precoDeCompra
 
     }
     fun setLiquido(vl:Double){
