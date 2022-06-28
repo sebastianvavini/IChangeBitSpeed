@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var horasDeTrabalho: EditText
     private lateinit var diasDeTrabalho: EditText
     private lateinit var precoDaHora: EditText
-    private lateinit var trajetoEmKMs: EditText
+    private lateinit var totalDeKMsPercorridos: EditText
     private lateinit var kmPorLitro: EditText
     private lateinit var qtdLitros: EditText
     private lateinit var precoPorLitro: EditText
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         horasDeTrabalho = binding.editTextHorasDeTrabalho
         diasDeTrabalho = binding.editTextDiasDeTrabalho
         precoDaHora = binding.editTextPrecoHora
-        trajetoEmKMs = binding.editTextTrajetoKms
+        totalDeKMsPercorridos = binding.editTextKmsPercorridos
         kmPorLitro = binding.editTextKmForLiter
         qtdLitros = binding.editTextLitrosComprados
         precoPorLitro = binding.editTextPrecoPorLitro
@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         invest.setNome(nome.text.toString())
 
 
+
         if (precoCompra.text.toString() != "") {
             invest.setPrecoDeCompra(precoCompra.text.toString().toDouble())
         }
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         invest.calculaTotais()
         acumulado.setText(invest.getAcumulado().toString())
         liquido.setText(invest.getLiquido().toString())
-
+        totalDeKMsPercorridos.setText(invest.getDistanciaPercorrida().toString())
 
         invest.printInvestimento()
     }

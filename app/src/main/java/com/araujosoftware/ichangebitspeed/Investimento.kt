@@ -18,14 +18,20 @@ open class Investimento {
     private var precoDoLitro:Double=0.0
     private var autonomiaDoVeiculo:Double=0.1
     private var distanciaPercorrida:Double=0.0
+    private var vezesPercorridas:Double=0.0
+    private var houveDeslocamento:Boolean=true
 
-    private var pensaoAlimenticia:Double=1200.0
+
+
 
     /** Indicadores economicos*/
     private var taxaSelic:Double=13.2
     private var ipca:Double=10.5
     private var igpm:Double=12.7
 
+    fun setVezesPercorridas(vezes:Double){
+        this.vezesPercorridas=vezes
+    }
     fun setNome(novo:String){
         this.nome=novo
     }
@@ -35,8 +41,14 @@ open class Investimento {
     fun calculaTotais(){
         precoDeVenda= diasDeTrabalho*horasDeTrabalho*precoDaHora
         precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida/autonomiaDoVeiculo
-        this.bruto= precoDeVenda - precoDeCompra
-        this.liquido=precoDeVenda-precoDeCompra
+        this.bruto= precoDeVenda - precoDeCompra //somar com todos os bens inventariados
+
+        this.liquido=precoDeVenda-precoDeCompra //então o lucro é igual ao líquido?
+        this.lucro=precoDeVenda-precoDeCompra //então o lucro é igual ao líquido?
+
+        var distanciaEmKm=13.0
+        this.distanciaPercorrida=this.diasDeTrabalho*distanciaEmKm
+
 
     }
     fun setLiquido(vl:Double){
@@ -68,6 +80,9 @@ open class Investimento {
     }
 
 
+    fun getVezesPercorridas():Double{
+        return this.vezesPercorridas
+    }
     fun getNome():String{
         return this.nome
     }
@@ -101,6 +116,9 @@ open class Investimento {
     }
     fun getPrecoDaHora():Double{
         return this.precoDaHora
+    }
+    fun getDistanciaPercorrida():Double{
+        return this.distanciaPercorrida
     }
 
     fun printInvestimento(){
