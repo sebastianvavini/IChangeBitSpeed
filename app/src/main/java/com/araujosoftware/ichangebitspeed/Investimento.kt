@@ -47,7 +47,7 @@ open class Investimento {
 
         precoPretendido
         precoDeVenda= diasDeTrabalho*horasDeTrabalho*precoDaHora
-        precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida/autonomiaDoVeiculo
+        precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida*vezesPercorridas/autonomiaDoVeiculo
         this.bruto= precoDeVenda - precoDeCompra //somar com todos os bens inventariados
 
         this.liquido=precoDeVenda-precoDeCompra //então o lucro é igual ao líquido?

@@ -21,8 +21,16 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var horasDeTrabalho: EditText
     private lateinit var diasDeTrabalho: EditText
     private lateinit var precoDaHora: EditText
+
     private lateinit var totalDeKMsPercorridos: EditText
-    private lateinit var kmPorLitro: EditText
+    private lateinit var vezesPercorridas:EditText
+
+    private lateinit var localDeOrigemDoMotorista:EditText
+    private lateinit var localDeEmbarqueDoPassageiro:EditText
+    private lateinit var localDeDesembarqueDoPassageiro:EditText
+
+
+    private lateinit var kmPorLitro: EditText //autonomia
     private lateinit var qtdLitros: EditText
     private lateinit var precoPorLitro: EditText
     private lateinit var qtdUnidades: EditText
@@ -39,17 +47,26 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         liquido = binding.editTextLiquido
         precoCompra = binding.editTextPrecoDeCompra
         precoPretendido = binding.editTextPrecoPretendido
-        lucro = binding.editTextLucro
+
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
         horasDeTrabalho = binding.editTextHorasDeTrabalho
         diasDeTrabalho = binding.editTextDiasDeTrabalho
         precoDaHora = binding.editTextPrecoHora
-        totalDeKMsPercorridos = binding.editTextKmsPercorridos
-        kmPorLitro = binding.editTextKmForLiter
-        qtdLitros = binding.editTextLitrosComprados
-        precoPorLitro = binding.editTextPrecoPorLitro
+
+        totalDeKMsPercorridos = binding.editTextKmsPercorridos //Distancia percorrida
+        vezesPercorridas=binding.editTextQtdVezesPercorridas //
+
+
+        kmPorLitro = binding.editTextKmForLiter //autonomia do veiculo
+
+
         qtdUnidades = binding.editTextQtdUnidades
+
+        precoPorLitro = binding.editTextPrecoPorLitro
+
+
+
         binding.imageSave.setOnClickListener(this)
 
         setContentView(binding.root)
