@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var acumulado: EditText
     private lateinit var liquido: EditText
     private lateinit var precoCompra: EditText
-    private lateinit var precoVenda: EditText
+    private lateinit var precoPretendido: EditText
     private lateinit var lucro: EditText
     private lateinit var pontos: EditText
     private lateinit var milhas: EditText
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         acumulado = binding.editTextBruto
         liquido = binding.editTextLiquido
         precoCompra = binding.editTextPrecoDeCompra
-        precoVenda = binding.editTextPrecoDeVenda
+        precoPretendido = binding.editTextPrecoPretendido
         lucro = binding.editTextLucro
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
@@ -75,8 +75,8 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         if (precoCompra.text.toString() != "") {
             invest.setPrecoDeCompra(precoCompra.text.toString().toDouble())
         }
-        if (precoVenda.text.toString() != "")
-            invest.setPrecoDeVenda(precoVenda.text.toString().toDouble())
+        if (precoPretendido.text.toString() != "")
+            invest.setPrecoDeVenda(precoPretendido.text.toString().toDouble())
         if (lucro.text.toString() != "")
             invest.setLucro(lucro.text.toString().toDouble())
         if (pontos.text.toString() != "")

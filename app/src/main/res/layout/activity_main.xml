@@ -345,14 +345,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_preco_de_compra"
-                    android:text="Preço de venda" />
+                    android:text="Preço/Venda/Pretendido" />
 
                 <EditText
-                    android:id="@+id/edit_text_preco_de_venda"
+                    android:id="@+id/edit_text_preco_pretendido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Preço de Venda"
+                    android:hint="Pretenção de Venda"
+                    android:inputType="numberDecimal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Preço de venda" />
+
+                <EditText
+                    android:id="@+id/edit_text_preco_realizado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Preço Realizado"
                     android:inputType="numberDecimal" />
 
 

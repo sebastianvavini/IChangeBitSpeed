@@ -6,8 +6,13 @@ open class Investimento {
     private var bruto: Double=0.0
     private var liquido:Double=0.0
     private var precoDeCompra:Double=0.0
+
+    private var precoPretendido:Double=0.0
     private var precoDeVenda:Double=0.0
+
     private var lucro:Double=0.0
+    private var lucroPretendido=0.0
+
     private var pontos:Double=0.0
     private var milhas:Double=0.0
 
@@ -39,12 +44,14 @@ open class Investimento {
     this.acumulado=valor
     } */
     fun calculaTotais(){
+
+        precoPretendido
         precoDeVenda= diasDeTrabalho*horasDeTrabalho*precoDaHora
         precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida/autonomiaDoVeiculo
         this.bruto= precoDeVenda - precoDeCompra //somar com todos os bens inventariados
 
         this.liquido=precoDeVenda-precoDeCompra //então o lucro é igual ao líquido?
-        this.lucro=precoDeVenda-precoDeCompra //então o lucro é igual ao líquido?
+       // this.lucro=precoDeVenda-precoDeCompra //então o lucro é igual ao líquido?
 
         var distanciaEmKm=13.0
         this.distanciaPercorrida=this.diasDeTrabalho*distanciaEmKm
