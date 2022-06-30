@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var liquido: EditText
     private lateinit var precoCompra: EditText
     private lateinit var precoPretendido: EditText
-    private lateinit var lucro: EditText
+    //private lateinit var lucro: EditText abandona a ideia de lucro. Focar em equity. No capital acumulado
     private lateinit var pontos: EditText
     private lateinit var milhas: EditText
     private lateinit var horasDeTrabalho: EditText
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
+        //lucro =binding.editTextLucro // abandonada a ideia de lucro. Focar em equitiy
         horasDeTrabalho = binding.editTextHorasDeTrabalho
         diasDeTrabalho = binding.editTextDiasDeTrabalho
         precoDaHora = binding.editTextPrecoHora
@@ -94,8 +95,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         }
         if (precoPretendido.text.toString() != "")
             invest.setPrecoDeVenda(precoPretendido.text.toString().toDouble())
-        if (lucro.text.toString() != "")
-            invest.setLucro(lucro.text.toString().toDouble())
+
         if (pontos.text.toString() != "")
             invest.setPontos(pontos.text.toString().toDouble())
         if (milhas.text.toString() != "")
