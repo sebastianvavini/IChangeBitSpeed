@@ -51,12 +51,12 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
         //lucro =binding.editTextLucro // abandonada a ideia de lucro. Focar em equitiy
-        horasDeTrabalho = binding.editTextHorasDeTrabalho
+        horasDeTrabalho = binding.editTextHorasPorDia
         diasDeTrabalho = binding.editTextDiasDeTrabalho
         precoDaHora = binding.editTextPrecoHora
 
         totalDeKMsPercorridos = binding.editTextKmsPercorridos //Distancia percorrida
-        vezesPercorridas=binding.editTextQtdVezesPercorridas //
+
 
 
         kmPorLitro = binding.editTextKmForLiter //autonomia do veiculo

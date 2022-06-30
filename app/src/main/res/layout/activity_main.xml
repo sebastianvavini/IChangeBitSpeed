@@ -287,38 +287,19 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_marginTop="12dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:textSize="20dp"
-                android:text="Custos deste Investimento" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/black"
-
-                />
-
-
-
-
-
-
-
-
-
-
-
-
-
+                android:text="Custos deste Investimento"
+                android:textSize="20dp" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -347,10 +328,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_milhas"
 
-                    android:text="Horas de Trabalho" />
+                    android:text="Horas por Dia" />
 
                 <EditText
-                    android:id="@+id/edit_text_horas_de_trabalho"
+                    android:id="@+id/edit_text_horas_por_dia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -379,6 +360,35 @@
                     android:layout_weight="1"
                     android:hint="preço da hora"
                     android:inputType="numberDecimal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_km_for_liter"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:text="Custo de Tempo Aplicado" />
+
+
+                <EditText
+                    android:id="@+id/edit_text_soma_do_Tempo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Calcule"
+                    android:enabled="false"
+                    android:inputType="numberDecimal" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -417,7 +427,6 @@
 
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -438,10 +447,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:hint="Total KMs Pecorridos"
-                    android:inputType="numberDecimal" />
+                    android:hint="(abrir Calc)"
+                    android:inputType="numberDecimal"
+                   />
 
             </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -453,23 +465,99 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_horas_de_trabalho"
 
-                    android:text="Vezes percorridas" />
+                    android:text="Foi em veículo proprio?" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_sim_veiculo_proprio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Sim" />
+
+                    <RadioButton
+                        android:id="@+id/radio_nao_taxi_ou_similar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Não" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Autonomia"
+                android:textSize="19dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_trajeto_kms"
+
+                    android:text="Km por litro" />
 
                 <EditText
-                    android:id="@+id/edit_text_qtd_vezes_percorridas"
+                    android:id="@+id/edit_text_km_for_liter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:hint=" 2 para duas vezes"
+                    android:hint="KMs por litro"
                     android:inputType="numberDecimal" />
-
-
             </LinearLayout>
 
+           <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
 
 
+               <TextView
+                   android:gravity="center"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@+id/text_km_for_liter"
+
+                   android:text="Pagou por algo?: " />
+               <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+
+                   <RadioButton
+                       android:id="@+id/radio_Comprou"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+
+                       android:text="Sim" />
+
+                   <RadioButton
+                       android:id="@+id/radio_nao_comprou"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+
+                       android:text="Não" />
+               </RadioGroup>
+
+           </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -483,31 +571,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_km_for_liter"
 
-                    android:text="Unidades de Medida: " />
-
-                <EditText
-                    android:id="@+id/edit_text_unidade_de_medida"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="litro, ou kg, km"
-                    android:inputType="numberDecimal" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_km_for_liter"
-
-                    android:text="QTD de unidades: " />
+                    android:text="QTD de unidades compradas: " />
 
                 <EditText
                     android:id="@+id/edit_text_qtd_unidades"
@@ -548,24 +612,101 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_km_for_liter"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:text="Custo de Recursos Consumidos" />
+
+
+                <EditText
+                    android:id="@+id/edit_text_total_da_compra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Calcule"
+                    android:inputType="numberDecimal"
+                    android:enabled="false"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Totais"
+                android:gravity="center"
+                android:textSize="22dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_liquido"
-                    android:text="Preço de compra" />
+                    android:text="Valor do Aporte" />
 
                 <EditText
                     android:id="@+id/edit_text_preco_de_compra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Preço de Compra"
+                    android:hint="Valor do Aporte"
+                    android:enabled="false"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
 
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comprovantes:"
+                android:gravity="center"
+                android:textSize="19dp"
+                />
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comprovante:"
+                    android:gravity="center"
+                    android:textSize="19dp"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Upload de Comprovante"
+                    android:inputType="numberDecimal" />
 
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mídia"
+                android:gravity="center"
+                android:textSize="19dp"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -589,7 +730,6 @@
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -612,46 +752,14 @@
 
             </LinearLayout>
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="19dp"
-                android:text="Autonomia" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
                 android:layout_marginTop="12dp"
-                >
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_trajeto_kms"
-
-                    android:text="Km por litro" />
-
-                <EditText
-                    android:id="@+id/edit_text_km_for_liter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="KMs por litro"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="19dp"
                 android:text="Ganhos"
-                android:layout_marginTop="12dp"/>
+                android:textSize="19dp" />
 
             <View
                 android:layout_width="match_parent"
@@ -659,12 +767,13 @@
                 android:background="@color/black"
 
                 />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -704,7 +813,6 @@
 
 
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -779,6 +887,7 @@
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

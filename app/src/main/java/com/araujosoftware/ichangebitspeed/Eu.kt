@@ -14,6 +14,7 @@ class Eu : Investimento() {
     /** Lista de Pertences*/
     private var carro:Pertence= Pertence()
     private var notebook:Pertence= Pertence()
+    private var quadroScrum:Pertence=Pertence()
 
    /** Lista de "amigos" (Investimentos)*/
     private var investimento1:Eu= Eu()

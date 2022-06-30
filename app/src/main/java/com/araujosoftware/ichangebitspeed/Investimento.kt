@@ -21,6 +21,7 @@ open class Investimento {
     private var precoDaHora:Double=0.0
     private var qtdLitrosComprados:Double=0.0
     private var precoDoLitro:Double=0.0
+
     private var autonomiaDoVeiculo:Double=0.1
     private var distanciaPercorrida:Double=0.0
     private var vezesPercorridas:Double=0.0
