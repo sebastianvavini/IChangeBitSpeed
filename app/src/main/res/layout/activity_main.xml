@@ -379,15 +379,15 @@
                     android:text="Custo de Tempo Aplicado" />
 
 
-                <EditText
-                    android:id="@+id/edit_text_soma_do_Tempo"
+                <TextView
+                    android:id="@+id/textView_custo_do_tempo_aplicado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:hint="Calcule"
-                    android:enabled="false"
-                    android:inputType="numberDecimal" />
+                    android:text="R$ -"
+                    android:textSize="22dp"
+                     />
 
             </LinearLayout>
 
@@ -411,14 +411,14 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radio_pirates"
+                        android:id="@+id/radio_sim_deslocamento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:text="Sim" />
 
                     <RadioButton
-                        android:id="@+id/radio_ninjas"
+                        android:id="@+id/radio_nao_deslocamento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
@@ -428,6 +428,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/linearLayout_trajeto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -456,6 +457,7 @@
 
 
             <LinearLayout
+                android:id="@+id/linearlayout_foi_em_veiculo_proprio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -492,6 +494,7 @@
 
             </LinearLayout>
             <TextView
+                android:id="@+id/textview_Autonomia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -499,6 +502,7 @@
                 android:textSize="19dp" />
 
             <LinearLayout
+                android:id="@+id/linearLayout_autonomia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -514,7 +518,7 @@
                     android:text="Km por litro" />
 
                 <EditText
-                    android:id="@+id/edit_text_km_for_liter"
+                    android:id="@+id/edit_text_autonomia_do_veiculo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -543,14 +547,14 @@
                    android:orientation="horizontal">
 
                    <RadioButton
-                       android:id="@+id/radio_Comprou"
+                       android:id="@+id/radio_sim_pagou"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
 
                        android:text="Sim" />
 
                    <RadioButton
-                       android:id="@+id/radio_nao_comprou"
+                       android:id="@+id/radio_nao_pagou"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
 
@@ -560,6 +564,7 @@
            </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout_qtd_unidades_compradas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -585,6 +590,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout_preco_unidade_comprada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -599,7 +605,7 @@
                     android:text="Preço por Undidade de Medida" />
 
                 <EditText
-                    android:id="@+id/edit_text_preco_por_litro"
+                    android:id="@+id/edit_text_preco_por_unidade_de_medida"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -625,15 +631,16 @@
                     android:text="Custo de Recursos Consumidos" />
 
 
-                <EditText
-                    android:id="@+id/edit_text_total_da_compra"
+                <TextView
+                    android:id="@+id/textview_custo_de_recursos_consumidos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:hint="Calcule"
-                    android:inputType="numberDecimal"
-                    android:enabled="false"/>
+                    android:textSize="22dp"
+
+                   />
 
             </LinearLayout>
 
@@ -656,13 +663,14 @@
                     android:layout_below="@+id/text_liquido"
                     android:text="Valor do Aporte" />
 
-                <EditText
-                    android:id="@+id/edit_text_preco_de_compra"
+                <TextView
+                    android:id="@+id/textview_valor_do_aporte"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Valor do Aporte"
-                    android:enabled="false"
-                    android:inputType="numberDecimal" />
+                    android:text=" R$ -"
+                    android:textSize="30dp"
+
+                     />
 
             </LinearLayout>
 
@@ -719,15 +727,9 @@
                     android:layout_height="wrap_content"
 
 
-                    android:text="Audio" />
+                    android:text="Gravar Audio" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="Upload de Audio"
-                    android:inputType="numberDecimal" />
+
 
             </LinearLayout>
             <LinearLayout
@@ -742,7 +744,7 @@
                     android:layout_height="wrap_content"
 
 
-                    android:text="Video" />
+                    android:text="Gravar Vídeo" />
 
                 <VideoView
                     android:layout_width="wrap_content"

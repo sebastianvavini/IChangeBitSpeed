@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.view.isVisible
 import com.araujosoftware.ichangebitspeed.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() , View.OnClickListener{
@@ -13,14 +16,20 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var nome: EditText
     private lateinit var acumulado: EditText
     private lateinit var liquido: EditText
-    private lateinit var precoCompra: EditText
+    private lateinit var custoDoTempoAplicado:TextView
+
+
+    private lateinit var custoDeRecursosConsumidos: TextView
+    private lateinit var valorDoAporte :TextView
     private lateinit var precoPretendido: EditText
+
     //private lateinit var lucro: EditText abandona a ideia de lucro. Focar em equity. No capital acumulado
     private lateinit var pontos: EditText
     private lateinit var milhas: EditText
     private lateinit var horasDeTrabalho: EditText
     private lateinit var diasDeTrabalho: EditText
     private lateinit var precoDaHora: EditText
+    private lateinit var precoUnidadeMedida:EditText
 
     private lateinit var totalDeKMsPercorridos: EditText
     private lateinit var vezesPercorridas:EditText
@@ -30,9 +39,8 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var localDeDesembarqueDoPassageiro:EditText
 
 
-    private lateinit var kmPorLitro: EditText //autonomia
-    private lateinit var qtdLitros: EditText
-    private lateinit var precoPorLitro: EditText
+    private lateinit var autonomiaDoVeiculo: EditText //autonomia
+
     private lateinit var qtdUnidades: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,36 +50,50 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
 
+        fazerBinding()
+
+        setContentView(binding.root)
+        addOnClickListeners()
+
+
+    }
+    private fun  fazerBinding(){
         nome = binding.editTextNome
         acumulado = binding.editTextBruto
         liquido = binding.editTextLiquido
-        precoCompra = binding.editTextPrecoDeCompra
-        precoPretendido = binding.editTextPrecoPretendido
+        custoDoTempoAplicado= binding.textViewCustoDoTempoAplicado
 
+        custoDeRecursosConsumidos = binding.textviewCustoDeRecursosConsumidos
+        precoPretendido = binding.editTextPrecoPretendido
+        precoUnidadeMedida= binding.editTextPrecoPorUnidadeDeMedida
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
+
         //lucro =binding.editTextLucro // abandonada a ideia de lucro. Focar em equitiy
+
         horasDeTrabalho = binding.editTextHorasPorDia
         diasDeTrabalho = binding.editTextDiasDeTrabalho
         precoDaHora = binding.editTextPrecoHora
 
         totalDeKMsPercorridos = binding.editTextKmsPercorridos //Distancia percorrida
-
-
-
-        kmPorLitro = binding.editTextKmForLiter //autonomia do veiculo
-
-
+        autonomiaDoVeiculo = binding.editTextAutonomiaDoVeiculo //autonomia do veiculo
         qtdUnidades = binding.editTextQtdUnidades
 
-        precoPorLitro = binding.editTextPrecoPorLitro
+
+        valorDoAporte = binding.textviewValorDoAporte
 
 
 
+    }
+
+    private fun addOnClickListeners(){
         binding.imageSave.setOnClickListener(this)
-
-        setContentView(binding.root)
-
+        custoDoTempoAplicado.setOnClickListener(this)
+       // binding.radioSimDeslocamento.setOnClickListener(this)
+        binding.radioNaoDeslocamento.setOnClickListener(this)
+        binding.radioNaoPagou.setOnClickListener(this)
+        binding.textviewCustoDeRecursosConsumidos.setOnClickListener(this)
+        valorDoAporte.setOnClickListener(this)
 
     }
 
@@ -80,6 +102,74 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
             println("Ouvindo...")
             salvar()
         }
+        if(p.id==R.id.textView_custo_do_tempo_aplicado){
+            calculeCustoDeTempoAplicado()
+        }
+        if(p.id==R.id.radio_sim_deslocamento){
+
+        }
+        if(p.id==R.id.radio_nao_deslocamento){
+
+            println(" Some Perguntas desnecessarias")
+            binding.linearLayoutTrajeto.isVisible=false
+            binding.linearlayoutFoiEmVeiculoProprio.isVisible=false
+            binding.textviewAutonomia.isVisible=false
+            binding.linearLayoutAutonomia.isVisible=false
+
+
+        }
+        if(p.id==R.id.radio_nao_pagou){
+            binding.linearLayoutQtdUnidadesCompradas.isVisible=false
+            binding.linearLayoutPrecoUnidadeComprada.isVisible=false
+        }
+        if(p.id==R.id.textview_custo_de_recursos_consumidos){
+            calculeCustoDeRecursosConsumidos()
+        }
+        if(p.id==R.id.textview_valor_do_aporte){
+
+            println("VALOR DO APORTE CALCULANDO...")
+            var horasTrab=calculeCustoDeTempoAplicado()
+            var consumo = calculeCustoDeRecursosConsumidos()
+
+            var resultado = horasTrab + consumo
+            var formatado= "%.2f".format(resultado)
+            var valorString= "R$ ${formatado}"
+
+            valorDoAporte.setText(valorString)
+        }
+    }
+
+    private fun calculeCustoDeRecursosConsumidos():Double{
+        var trajeto= totalDeKMsPercorridos.text.toString().toDouble()
+
+        var qtd_unid_compr= qtdUnidades.text.toString().toDouble()
+        var preco_unidade= precoUnidadeMedida.text.toString().toDouble()
+
+        var autonomia= autonomiaDoVeiculo.text.toString().toDouble()
+
+        var resultado=0.0
+        if(autonomia !=0.0){
+
+            resultado = (preco_unidade*trajeto/autonomia) +qtd_unid_compr*preco_unidade
+
+            var formatado= "%.2f".format(resultado)
+            var valorString= "R$ ${formatado}"
+            custoDeRecursosConsumidos.setText(valorString)
+        }else {
+            Toast.makeText(this,"Automia deve ser maior que zero",Toast.LENGTH_LONG).show()
+        }
+
+        return resultado
+    }
+
+    private fun calculeCustoDeTempoAplicado():Double{
+        var dias=diasDeTrabalho.text.toString().toDouble()
+        var horas=horasDeTrabalho.text.toString().toDouble()
+        var precoHora=precoDaHora.text.toString().toDouble()
+
+        var resultado= (dias*horas*precoHora)
+        custoDoTempoAplicado.setText(resultado.toString())
+        return resultado
     }
 
     private fun salvar() {
@@ -90,8 +180,8 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
 
 
-        if (precoCompra.text.toString() != "") {
-            invest.setPrecoDeCompra(precoCompra.text.toString().toDouble())
+        if (custoDeRecursosConsumidos.text.toString() != "") {
+            invest.setPrecoDeCompra(custoDeRecursosConsumidos.text.toString().toDouble())
         }
         if (precoPretendido.text.toString() != "")
             invest.setPrecoDeVenda(precoPretendido.text.toString().toDouble())
