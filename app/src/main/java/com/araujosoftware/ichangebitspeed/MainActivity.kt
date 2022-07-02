@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var acumulado: EditText
     private lateinit var liquido: EditText
     private lateinit var custoDoTempoAplicado:TextView
+    private var custoDoTempoAplicadoDouble=0.00
 
 
     private lateinit var custoDeRecursosConsumidos: TextView
@@ -133,19 +134,35 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
             var resultado = horasTrab + consumo
             var formatado= "%.2f".format(resultado)
-            var valorString= "R$ ${formatado}"
+            //var valorString= "${formatado}"
 
-            valorDoAporte.setText(valorString)
+            valorDoAporte.setText(formatado)
         }
     }
 
     private fun calculeCustoDeRecursosConsumidos():Double{
-        var trajeto= totalDeKMsPercorridos.text.toString().toDouble()
+        var trajeto= 0.0
 
-        var qtd_unid_compr= qtdUnidades.text.toString().toDouble()
-        var preco_unidade= precoUnidadeMedida.text.toString().toDouble()
+        var qtd_unid_compr= 0.0
+        var preco_unidade= 0.01
 
-        var autonomia= autonomiaDoVeiculo.text.toString().toDouble()
+        var autonomia= 0.01
+
+        if(totalDeKMsPercorridos.text.toString()!=""&&
+                qtdUnidades.text.toString()!=""&&
+                precoUnidadeMedida.text.toString()!=""&&
+                autonomiaDoVeiculo.text.toString()!=""){
+
+            trajeto= totalDeKMsPercorridos.text.toString().toDouble()
+
+            qtd_unid_compr= qtdUnidades.text.toString().toDouble()
+            preco_unidade= precoUnidadeMedida.text.toString().toDouble()
+
+            autonomia= autonomiaDoVeiculo.text.toString().toDouble()
+
+        }else{
+            Toast.makeText(this, "Todos os valores devem ser preenchidos", Toast.LENGTH_LONG)
+        }
 
         var resultado=0.0
         if(autonomia !=0.0){
@@ -163,12 +180,25 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     }
 
     private fun calculeCustoDeTempoAplicado():Double{
-        var dias=diasDeTrabalho.text.toString().toDouble()
-        var horas=horasDeTrabalho.text.toString().toDouble()
-        var precoHora=precoDaHora.text.toString().toDouble()
 
+        var dias=0.00
+        var horas=0.00
+        var precoHora=0.00
         var resultado= (dias*horas*precoHora)
-        custoDoTempoAplicado.setText(resultado.toString())
+
+
+        if(diasDeTrabalho.text.toString()!=""&&
+            horasDeTrabalho.text.toString()!=""&&
+            diasDeTrabalho.text.toString()!=""){
+             dias=diasDeTrabalho.text.toString().toDouble()
+             horas=horasDeTrabalho.text.toString().toDouble()
+             precoHora=precoDaHora.text.toString().toDouble()
+            resultado= (dias*horas*precoHora)
+
+        }
+
+        var formatado ="%.2f".format(resultado)
+        custoDoTempoAplicado.setText(formatado)
         return resultado
     }
 
