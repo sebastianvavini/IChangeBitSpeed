@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private fun addOnClickListeners(){
         binding.imageSave.setOnClickListener(this)
         custoDoTempoAplicado.setOnClickListener(this)
-       // binding.radioSimDeslocamento.setOnClickListener(this)
+        binding.radioSimDeslocamento.setOnClickListener(this)
         binding.radioNaoDeslocamento.setOnClickListener(this)
         binding.radioNaoPagou.setOnClickListener(this)
         binding.textviewCustoDeRecursosConsumidos.setOnClickListener(this)
@@ -107,7 +107,10 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
             calculeCustoDeTempoAplicado()
         }
         if(p.id==R.id.radio_sim_deslocamento){
-
+            binding.linearLayoutTrajeto.isVisible=true
+            binding.linearlayoutFoiEmVeiculoProprio.isVisible=true
+            binding.textviewAutonomia.isVisible=true
+            binding.linearLayoutAutonomia.isVisible=true
         }
         if(p.id==R.id.radio_nao_deslocamento){
 
@@ -119,6 +122,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
 
         }
+
         if(p.id==R.id.radio_nao_pagou){
             binding.linearLayoutQtdUnidadesCompradas.isVisible=false
             binding.linearLayoutPrecoUnidadeComprada.isVisible=false
@@ -151,7 +155,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         if(totalDeKMsPercorridos.text.toString()!=""&&
                 qtdUnidades.text.toString()!=""&&
                 precoUnidadeMedida.text.toString()!=""&&
-                autonomiaDoVeiculo.text.toString()!=""){
+                autonomiaDoVeiculo.text.toString()!=""&& qtdUnidades.text.toString()!=""){
 
             trajeto= totalDeKMsPercorridos.text.toString().toDouble()
 
@@ -164,16 +168,54 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
             Toast.makeText(this, "Todos os valores devem ser preenchidos", Toast.LENGTH_LONG)
         }
 
-        var resultado=0.0
-        if(autonomia !=0.0){
+        if(autonomia==0.0){
+            Toast.makeText(this,"Automia deve ser maior que zero",Toast.LENGTH_LONG).show()
+        }
 
+
+        var resultado=0.0
+        if( autonomia !=0.01 && trajeto!= 0.0){
+
+            println("##### atenção aqui")
+            
+            println(preco_unidade)
+            println(qtd_unid_compr)
+            println(trajeto)
+            println(autonomia)
+
+            trajeto= totalDeKMsPercorridos.text.toString().toDouble()
+            qtd_unid_compr= qtdUnidades.text.toString().toDouble()
+            preco_unidade= precoUnidadeMedida.text.toString().toDouble()
+
+            autonomia= autonomiaDoVeiculo.text.toString().toDouble()
+
+            println((preco_unidade*trajeto/autonomia) +qtd_unid_compr*preco_unidade)
             resultado = (preco_unidade*trajeto/autonomia) +qtd_unid_compr*preco_unidade
+            println("########  Resultado igual a: ${resultado}")
 
             var formatado= "%.2f".format(resultado)
             var valorString= "R$ ${formatado}"
             custoDeRecursosConsumidos.setText(valorString)
-        }else {
-            Toast.makeText(this,"Automia deve ser maior que zero",Toast.LENGTH_LONG).show()
+
+        }
+
+
+
+        if(autonomia ==0.01 && trajeto==0.0){
+
+            qtd_unid_compr= qtdUnidades.text.toString().toDouble()
+            preco_unidade= precoUnidadeMedida.text.toString().toDouble()
+            println(" if(autonomia ==0.01 && trajeto==0.0){")
+            println("preço da unidade ${preco_unidade}")
+            println(" qtd: ${qtd_unid_compr}")
+
+
+            resultado = qtd_unid_compr*preco_unidade
+            println("########  Resultado igual a: ${resultado}")
+
+            var formatado= "%.2f".format(resultado)
+            var valorString= "R$ ${formatado}"
+            custoDeRecursosConsumidos.setText(valorString)
         }
 
         return resultado

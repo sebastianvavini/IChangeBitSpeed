@@ -626,7 +626,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:hint="0.00"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
@@ -665,7 +664,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TOTAIS"
+                android:text="TOTAL"
                 android:gravity="center"
                 android:textSize="30dp"/>
 
@@ -674,7 +673,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -790,8 +790,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:text="Ganhos"
-                android:textSize="19dp" />
+                android:text="GANHOS"
+                android:textSize="36dp" />
 
             <View
                 android:layout_width="match_parent"
