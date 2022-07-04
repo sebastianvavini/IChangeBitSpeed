@@ -3,25 +3,26 @@ package com.araujosoftware.ichangebitspeed
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.araujosoftware.ichangebitspeed.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() , View.OnClickListener{
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
 
 
     private lateinit var nome: EditText
     private lateinit var acumulado: EditText
     private lateinit var liquido: EditText
-    private lateinit var custoDoTempoAplicado:TextView
-    private var custoDoTempoAplicadoDouble=0.00
+    private lateinit var custoDoTempoAplicado: TextView
+    private var custoDoTempoAplicadoDouble = 0.00
 
 
     private lateinit var custoDeRecursosConsumidos: TextView
-    private lateinit var valorDoAporte :TextView
+    private lateinit var valorDoAporte: TextView
     private lateinit var precoPretendido: EditText
 
     //private lateinit var lucro: EditText abandona a ideia de lucro. Focar em equity. No capital acumulado
@@ -30,23 +31,25 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     private lateinit var horasDeTrabalho: EditText
     private lateinit var diasDeTrabalho: EditText
     private lateinit var precoDaHora: EditText
-    private lateinit var precoUnidadeMedida:EditText
+    private lateinit var precoUnidadeMedida: EditText
 
     private lateinit var totalDeKMsPercorridos: EditText
-    private lateinit var vezesPercorridas:EditText
+    private lateinit var vezesPercorridas: EditText
 
-    private lateinit var localDeOrigemDoMotorista:EditText
-    private lateinit var localDeEmbarqueDoPassageiro:EditText
-    private lateinit var localDeDesembarqueDoPassageiro:EditText
+    private lateinit var localDeOrigemDoMotorista: EditText
+    private lateinit var localDeEmbarqueDoPassageiro: EditText
+    private lateinit var localDeDesembarqueDoPassageiro: EditText
 
 
     private lateinit var autonomiaDoVeiculo: EditText //autonomia
 
     private lateinit var qtdUnidades: EditText
+    private lateinit var botaoCalcularGanhos: Button
+    private lateinit var brutoEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -58,15 +61,16 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
 
     }
-    private fun  fazerBinding(){
+
+    private fun fazerBinding() {
         nome = binding.editTextNome
         acumulado = binding.editTextBruto
         liquido = binding.editTextLiquido
-        custoDoTempoAplicado= binding.textViewCustoDoTempoAplicado
+        custoDoTempoAplicado = binding.textViewCustoDoTempoAplicado
 
         custoDeRecursosConsumidos = binding.textviewCustoDeRecursosConsumidos
         precoPretendido = binding.editTextPrecoPretendido
-        precoUnidadeMedida= binding.editTextPrecoPorUnidadeDeMedida
+        precoUnidadeMedida = binding.editTextPrecoPorUnidadeDeMedida
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
 
@@ -82,19 +86,22 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
 
         valorDoAporte = binding.textviewValorDoAporte
-
+        botaoCalcularGanhos = binding.buttonCalcularGanhos
+        brutoEditText = binding.editTextBruto
 
 
     }
 
-    private fun addOnClickListeners(){
+    private fun addOnClickListeners() {
         binding.imageSave.setOnClickListener(this)
         custoDoTempoAplicado.setOnClickListener(this)
         binding.radioSimDeslocamento.setOnClickListener(this)
         binding.radioNaoDeslocamento.setOnClickListener(this)
         binding.radioNaoPagou.setOnClickListener(this)
+        binding.radioSimPagou.setOnClickListener(this)
         binding.textviewCustoDeRecursosConsumidos.setOnClickListener(this)
         valorDoAporte.setOnClickListener(this)
+        botaoCalcularGanhos.setOnClickListener(this)
 
     }
 
@@ -103,145 +110,194 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
             println("Ouvindo...")
             salvar()
         }
-        if(p.id==R.id.textView_custo_do_tempo_aplicado){
+        if (p.id == R.id.textView_custo_do_tempo_aplicado) {
             calculeCustoDeTempoAplicado()
         }
-        if(p.id==R.id.radio_sim_deslocamento){
-            binding.linearLayoutTrajeto.isVisible=true
-            binding.linearlayoutFoiEmVeiculoProprio.isVisible=true
-            binding.textviewAutonomia.isVisible=true
-            binding.linearLayoutAutonomia.isVisible=true
+        if (p.id == R.id.radio_sim_deslocamento) {
+            binding.linearLayoutTrajeto.isVisible = true
+            binding.linearlayoutFoiEmVeiculoProprio.isVisible = true
+            binding.textviewAutonomia.isVisible = true
+            binding.linearLayoutAutonomia.isVisible = true
         }
-        if(p.id==R.id.radio_nao_deslocamento){
+        if (p.id == R.id.radio_nao_deslocamento) {
 
             println(" Some Perguntas desnecessarias")
-            binding.linearLayoutTrajeto.isVisible=false
-            binding.linearlayoutFoiEmVeiculoProprio.isVisible=false
-            binding.textviewAutonomia.isVisible=false
-            binding.linearLayoutAutonomia.isVisible=false
+            binding.linearLayoutTrajeto.isVisible = false
+            binding.linearlayoutFoiEmVeiculoProprio.isVisible = false
+            binding.textviewAutonomia.isVisible = false
+            binding.linearLayoutAutonomia.isVisible = false
+            binding.editTextKmsPercorridos.setText("0")
 
 
         }
 
-        if(p.id==R.id.radio_nao_pagou){
-            binding.linearLayoutQtdUnidadesCompradas.isVisible=false
-            binding.linearLayoutPrecoUnidadeComprada.isVisible=false
+        if (p.id == R.id.radio_nao_pagou) {
+            binding.linearLayoutQtdUnidadesCompradas.isVisible = false
+            binding.linearLayoutPrecoUnidadeComprada.isVisible = false
+            binding.editTextQtdUnidades.setText("0")
+            calculeCustoDeRecursosConsumidos()
+
         }
-        if(p.id==R.id.textview_custo_de_recursos_consumidos){
+        if (p.id == R.id.radio_sim_pagou) {
+            binding.linearLayoutQtdUnidadesCompradas.isVisible = true
+            binding.linearLayoutPrecoUnidadeComprada.isVisible = true
+        }
+        if (p.id == R.id.textview_custo_de_recursos_consumidos) {
             calculeCustoDeRecursosConsumidos()
         }
-        if(p.id==R.id.textview_valor_do_aporte){
+        if (p.id == R.id.textview_valor_do_aporte) {
 
-            println("VALOR DO APORTE CALCULANDO...")
-            var horasTrab=calculeCustoDeTempoAplicado()
-            var consumo = calculeCustoDeRecursosConsumidos()
-
-            var resultado = horasTrab + consumo
-            var formatado= "%.2f".format(resultado)
-            //var valorString= "${formatado}"
-
-            valorDoAporte.setText(formatado)
+            calculeValorDoAporte()
+        }
+        if (p.id == R.id.button_calcular_ganhos) {
+            calcularGanhos()
         }
     }
+    private fun calculeValorDoAporte(){
 
-    private fun calculeCustoDeRecursosConsumidos():Double{
-        var trajeto= 0.0
+        println("VALOR DO APORTE CALCULANDO...")
+        var horasTrab = calculeCustoDeTempoAplicado()
+        var consumo = calculeCustoDeRecursosConsumidos()
 
-        var qtd_unid_compr= 0.0
-        var preco_unidade= 0.01
+        var resultado = horasTrab + consumo
+        var formatadoStr = "%.2f".format(resultado)
 
-        var autonomia= 0.01
 
-        if(totalDeKMsPercorridos.text.toString()!=""&&
-                qtdUnidades.text.toString()!=""&&
-                precoUnidadeMedida.text.toString()!=""&&
-                autonomiaDoVeiculo.text.toString()!=""&& qtdUnidades.text.toString()!=""){
+        valorDoAporte.setText(formatadoStr)
+    }
 
-            trajeto= totalDeKMsPercorridos.text.toString().toDouble()
+    private fun calculeCustoDeRecursosConsumidos(): Double {
+        var trajeto = 0.00
 
-            qtd_unid_compr= qtdUnidades.text.toString().toDouble()
-            preco_unidade= precoUnidadeMedida.text.toString().toDouble()
+        var qtd_unid_compr = 0.00
+        var preco_unidade = 0.01
 
-            autonomia= autonomiaDoVeiculo.text.toString().toDouble()
+        var autonomia = 0.01
+        var resultado = 0.00
 
-        }else{
+        if (totalDeKMsPercorridos.text.toString() != "" &&
+            qtdUnidades.text.toString() != "" &&
+            precoUnidadeMedida.text.toString() != "" &&
+            autonomiaDoVeiculo.text.toString() != "" && qtdUnidades.text.toString() != ""
+        ) {
+
+            trajeto = totalDeKMsPercorridos.text.toString().toDouble()
+
+            qtd_unid_compr = qtdUnidades.text.toString().toDouble()
+            preco_unidade = precoUnidadeMedida.text.toString().toDouble()
+
+            autonomia = autonomiaDoVeiculo.text.toString().toDouble()
+
+            if (autonomia == 0.0) {
+                Toast.makeText(this, "Automia deve ser maior que zero", Toast.LENGTH_LONG).show()
+            }
+            if (autonomia != 0.01 && trajeto != 0.0) {
+
+                println("##### atenção aqui")
+
+                println(preco_unidade)
+                println(qtd_unid_compr)
+                println(trajeto)
+                println(autonomia)
+
+                trajeto = totalDeKMsPercorridos.text.toString().toDouble()
+                qtd_unid_compr = qtdUnidades.text.toString().toDouble()
+                preco_unidade = precoUnidadeMedida.text.toString().toDouble()
+
+                autonomia = autonomiaDoVeiculo.text.toString().toDouble()
+
+
+
+                resultado =  (preco_unidade * trajeto / autonomia)+qtd_unid_compr*preco_unidade
+                // removido devido o fato do que é comprado é convertido em combustivel e não é consumo
+
+
+                println("########  Resultado igual a: ${resultado}")
+
+                var formatado = "%.2f".format(resultado)
+                var valorString = "${formatado}"
+                custoDeRecursosConsumidos.setText(valorString)
+
+            }
+
+            if (autonomia == 0.01 && trajeto == 0.0) {
+                if (qtdUnidades.text.toString() != "" && precoUnidadeMedida.text.toString() != "") {
+                    qtd_unid_compr = qtdUnidades.text.toString().toDouble()
+
+                    preco_unidade = precoUnidadeMedida.text.toString().toDouble()
+                }
+
+                println(" if(autonomia ==0.01 && trajeto==0.0){")
+                println("preço da unidade ${preco_unidade}")
+                println(" qtd: ${qtd_unid_compr}")
+
+
+                resultado = qtd_unid_compr * preco_unidade
+                println("########  Resultado igual a: ${resultado}")
+
+                var formatado = "%.2f".format(resultado)
+                var valorString = "R$ ${formatado}"
+                custoDeRecursosConsumidos.setText(valorString)
+            }
+
+
+
+        } else {
             Toast.makeText(this, "Todos os valores devem ser preenchidos", Toast.LENGTH_LONG)
         }
 
-        if(autonomia==0.0){
-            Toast.makeText(this,"Automia deve ser maior que zero",Toast.LENGTH_LONG).show()
-        }
-
-
-        var resultado=0.0
-        if( autonomia !=0.01 && trajeto!= 0.0){
-
-            println("##### atenção aqui")
-
-            println(preco_unidade)
-            println(qtd_unid_compr)
-            println(trajeto)
-            println(autonomia)
-
-            trajeto= totalDeKMsPercorridos.text.toString().toDouble()
-            qtd_unid_compr= qtdUnidades.text.toString().toDouble()
-            preco_unidade= precoUnidadeMedida.text.toString().toDouble()
-
-            autonomia= autonomiaDoVeiculo.text.toString().toDouble()
-
-            println((preco_unidade*trajeto/autonomia) +qtd_unid_compr*preco_unidade)
-            resultado = (preco_unidade*trajeto/autonomia) +qtd_unid_compr*preco_unidade
-            println("########  Resultado igual a: ${resultado}")
-
-            var formatado= "%.2f".format(resultado)
-            var valorString= "R$ ${formatado}"
-            custoDeRecursosConsumidos.setText(valorString)
-
-        }
-
-
-
-        if(autonomia ==0.01 && trajeto==0.0){
-
-            qtd_unid_compr= qtdUnidades.text.toString().toDouble()
-            preco_unidade= precoUnidadeMedida.text.toString().toDouble()
-            println(" if(autonomia ==0.01 && trajeto==0.0){")
-            println("preço da unidade ${preco_unidade}")
-            println(" qtd: ${qtd_unid_compr}")
-
-
-            resultado = qtd_unid_compr*preco_unidade
-            println("########  Resultado igual a: ${resultado}")
-
-            var formatado= "%.2f".format(resultado)
-            var valorString= "R$ ${formatado}"
-            custoDeRecursosConsumidos.setText(valorString)
-        }
 
         return resultado
     }
 
-    private fun calculeCustoDeTempoAplicado():Double{
+    private fun calculeCustoDeTempoAplicado(): Double {
 
-        var dias=0.00
-        var horas=0.00
-        var precoHora=0.00
-        var resultado= (dias*horas*precoHora)
+        var dias = 0.00
+        var horas = 0.00
+        var precoHora = 0.00
+        var resultado = (dias * horas * precoHora)
 
 
-        if(diasDeTrabalho.text.toString()!=""&&
-            horasDeTrabalho.text.toString()!=""&&
-            diasDeTrabalho.text.toString()!=""){
-             dias=diasDeTrabalho.text.toString().toDouble()
-             horas=horasDeTrabalho.text.toString().toDouble()
-             precoHora=precoDaHora.text.toString().toDouble()
-            resultado= (dias*horas*precoHora)
+        if (diasDeTrabalho.text.toString() != "" &&
+            horasDeTrabalho.text.toString() != "" &&
+            diasDeTrabalho.text.toString() != ""
+        ) {
+
+            dias = diasDeTrabalho.text.toString().toDouble()
+            horas = horasDeTrabalho.text.toString().toDouble()
+            precoHora = precoDaHora.text.toString().toDouble()
+            resultado = (dias * horas * precoHora)
 
         }
 
-        var formatado ="%.2f".format(resultado)
+        var formatado = "%.2f".format(resultado)
         custoDoTempoAplicado.setText(formatado)
         return resultado
+    }
+
+    private fun calcularGanhos() {
+
+        var ganhoBruto = 0.0
+        var ganhoLiquido = 0.0
+
+
+
+        if (binding.editTextPrecoRealizado.text.toString() != "" && valorDoAporte.text.toString() != "") {
+            ganhoBruto = binding.editTextPrecoRealizado.text.toString().toDouble()
+
+
+            var custos= custoDeRecursosConsumidos.text.toString().toDouble()
+
+            if(custoDeRecursosConsumidos.text.toString()!=""){
+                ganhoLiquido = ganhoBruto - custos
+                println(" O ganho liquido é de:  ${ganhoLiquido}")
+            }
+
+
+            var formatado = "%.2f".format(ganhoLiquido)
+            brutoEditText.setText(ganhoBruto.toString())
+            liquido.setText(formatado)
+        }
     }
 
     private fun salvar() {
@@ -262,7 +318,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
             invest.setPontos(pontos.text.toString().toDouble())
         if (milhas.text.toString() != "")
             invest.setMilhas(milhas.text.toString().toDouble())
-        if (diasDeTrabalho.text.toString()!="")
+        if (diasDeTrabalho.text.toString() != "")
             invest.setDiasDeTrabalho(diasDeTrabalho.text.toString().toDouble())
         if (horasDeTrabalho.text.toString() != "")
             invest.setHorasDeTrabalho(horasDeTrabalho.text.toString().toDouble())
