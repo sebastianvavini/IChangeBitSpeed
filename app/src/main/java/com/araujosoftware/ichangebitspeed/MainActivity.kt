@@ -177,7 +177,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         if( autonomia !=0.01 && trajeto!= 0.0){
 
             println("##### atenção aqui")
-            
+
             println(preco_unidade)
             println(qtd_unid_compr)
             println(trajeto)
