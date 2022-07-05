@@ -182,14 +182,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (totalDeKMsPercorridos.text.toString() != "" &&
             qtdUnidades.text.toString() != "" &&
             precoLitroDeCombustivel.text.toString() != "" &&
-            autonomiaDoVeiculo.text.toString() != "" && qtdUnidades.text.toString() != ""
+            autonomiaDoVeiculo.text.toString() != ""&&precoUnidadeDeMedida.text.toString()!=""
         ) {
 
             trajeto = totalDeKMsPercorridos.text.toString().toDouble()
             autonomia = autonomiaDoVeiculo.text.toString().toDouble()
 
-            preco_unidade_adicional_compr = qtdUnidades.text.toString().toDouble()
+            qtd_unid_compr = qtdUnidades.text.toString().toDouble()
             preco_litro = precoLitroDeCombustivel.text.toString().toDouble()
+            preco_unidade_adicional_compr=precoUnidadeDeMedida.text.toString().toDouble()
 
 
 
@@ -203,6 +204,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 println(trajeto)
                 println(preco_litro)
                 println(autonomia)
+                println(qtd_unid_compr)
                 println(preco_unidade_adicional_compr)
 
 
@@ -210,13 +212,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 trajeto = totalDeKMsPercorridos.text.toString().toDouble()
                 qtd_unid_compr = qtdUnidades.text.toString().toDouble()
                 preco_litro = precoLitroDeCombustivel.text.toString().toDouble()
+                preco_unidade_adicional_compr=precoUnidadeDeMedida.text.toString().toDouble()
 
                 autonomia = autonomiaDoVeiculo.text.toString().toDouble()
 
 
 
-                resultado =
-                    (preco_litro * trajeto / autonomia) + qtd_unid_compr * preco_unidade_adicional_compr
+                resultado =   (preco_litro * trajeto / autonomia) + qtd_unid_compr * preco_unidade_adicional_compr
                 // removido devido o fato do que é comprado é convertido em combustivel e não é consumo
 
 
@@ -232,11 +234,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 if (qtdUnidades.text.toString() != "" && precoLitroDeCombustivel.text.toString() != "") {
 
                     qtd_unid_compr = qtdUnidades.text.toString().toDouble()
-                    preco_litro = precoLitroDeCombustivel.text.toString().toDouble()
+                    preco_unidade_adicional_compr = precoUnidadeDeMedida.text.toString().toDouble()
                 }
 
                 println(" if(autonomia ==0.01 && trajeto==0.0){")
-                println("preço da unidade ${preco_litro}")
+                println("preço da unidade ${preco_unidade_adicional_compr}")
                 println(" qtd: ${qtd_unid_compr}")
 
 
