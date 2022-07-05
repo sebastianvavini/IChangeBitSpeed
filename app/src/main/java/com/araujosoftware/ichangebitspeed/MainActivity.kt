@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         valorDoAporte.setOnClickListener(this)
         botaoCalcularGanhos.setOnClickListener(this)
         binding.radioNaoEraVeiculoProprio.setOnClickListener(this)
+        binding.radioSimVeiculoProprio.setOnClickListener(this)
 
     }
 
@@ -132,6 +133,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
         if(p.id==R.id.radio_nao_era_veiculo_proprio){
             binding.linearLayoutAutonomia.isVisible=false
+        }
+        if(p.id==R.id.radio_sim_veiculo_proprio){
+            binding.linearLayoutAutonomia.isVisible=true
         }
 
 

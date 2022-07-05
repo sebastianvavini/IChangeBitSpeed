@@ -41,12 +41,9 @@
     </LinearLayout>
 
 
-
-
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="560dp"
         android:layout_marginTop="8dp"
         android:background="@color/white">
 
@@ -54,7 +51,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="32dp">
+            android:padding="30dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +65,8 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white">
+                android:background="@drawable/rounded"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -253,9 +252,9 @@
 
 
             <TextView
-                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
                 android:fontFamily="casual"
                 android:gravity="center"
                 android:text="ONDE INVISTO A MINHA ATENÇÃO ?"
@@ -263,114 +262,133 @@
                 android:textSize="20dp" />
 
             <LinearLayout
+                android:id="@+id/linearLayout_tempo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded"
+                android:orientation="vertical">
 
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+
+                        android:text="Nome"
+                        android:padding="8dp"/>
+
+                    <EditText
+                        android:id="@+id/edit_text_nome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@drawable/rounded"
+                        android:hint="Nome do Investimento"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_milhas"
+                        android:text="Dias de Trabalho"
+                        android:padding="8dp"/>
+
+                    <EditText
+                        android:id="@+id/edit_text_dias_de_trabalho"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint=" Dias Trabalhados"
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_milhas"
+
+                        android:text="Horas por Dia"
+                        android:padding="8dp"/>
+
+                    <EditText
+                        android:id="@+id/edit_text_horas_por_dia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Horas de Trabalho"
+                        android:background="@drawable/rounded"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_milhas"
+
+                        android:text="Preço da Hora "
+                        android:padding="8dp"/>
+
+                    <EditText
+                        android:id="@+id/edit_text_preco_hora"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="preço da hora"
+                        android:inputType="numberDecimal"
+                        android:background="@drawable/rounded"
+                        android:textAlignment="center"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:orientation="horizontal">
-
-                <TextView
-
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-
-                    android:text="Nome" />
-
-                <EditText
-                    android:id="@+id/edit_text_nome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="Nome do Investimento" />
-            </LinearLayout>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center"
-                android:text="Custos deste Investimento"
-                android:textSize="20dp" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_milhas"
-                    android:text="Dias de Trabalho" />
-
-                <EditText
-                    android:id="@+id/edit_text_dias_de_trabalho"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Dias Trabalhados"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_milhas"
-
-                    android:text="Horas por Dia" />
-
-                <EditText
-                    android:id="@+id/edit_text_horas_por_dia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Horas de Trabalho"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_milhas"
-
-                    android:text="Preço da Hora " />
-
-                <EditText
-                    android:id="@+id/edit_text_preco_hora"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="preço da hora"
-                    android:inputType="numberDecimal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -378,9 +396,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_km_for_liter"
-                    android:textSize="18dp"
                     android:gravity="center"
-                    android:text="Custo de Tempo Aplicado" />
+                    android:text="Custo de Tempo Aplicado"
+                    android:textSize="18dp" />
 
 
                 <LinearLayout
@@ -389,220 +407,284 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:orientation="horizontal">
-                        <TextView
 
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="R$ "
-                            android:textSize="22dp"
-                            />
-                        <TextView
-                            android:id="@+id/textView_custo_do_tempo_aplicado"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="calcule"
-                            android:textSize="22dp"
-                             />
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="R$ "
+                        android:textSize="22dp" />
+
+                    <TextView
+                        android:id="@+id/textView_custo_do_tempo_aplicado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="calcule"
+                        android:textSize="22dp" />
                 </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:text="Deslocamento"
+                android:textSize="22dp" />
+            <LinearLayout
+                android:id="@+id/linear_layout_deslocamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded">
 
-                <TextView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_horas_de_trabalho"
-
-                    android:text="Houve Deslocamento?" />
-
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp">
 
-                    <RadioButton
-                        android:id="@+id/radio_sim_deslocamento"
+                    <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_horas_de_trabalho"
 
-                        android:text="Sim" />
+                        android:text="Houve Deslocamento?" />
 
-                    <RadioButton
-                        android:id="@+id/radio_nao_deslocamento"
-                        android:layout_width="wrap_content"
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                        android:text="Não" />
-                </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/radio_sim_deslocamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
+                            android:text="Sim" />
 
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linearLayout_trajeto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
+                        <RadioButton
+                            android:id="@+id/radio_nao_deslocamento"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_horas_de_trabalho"
-
-                    android:text="Trajeto Em Kms" />
-
-                <EditText
-                    android:id="@+id/edit_text_kms_percorridos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="(abrir Calc)"
-                    android:inputType="numberDecimal"
-                   />
-
-            </LinearLayout>
+                            android:text="Não" />
+                    </RadioGroup>
 
 
-
-            <LinearLayout
-                android:id="@+id/linearlayout_foi_em_veiculo_proprio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_horas_de_trabalho"
-
-                    android:text="Foi em veículo proprio?" />
-
-                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayout_trajeto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
 
-                    <RadioButton
-                        android:id="@+id/radio_sim_veiculo_proprio"
+                    <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_horas_de_trabalho"
 
-                        android:text="Sim" />
+                        android:text="Trajeto Em Kms"
+                        android:padding="8dp"/>
 
-                    <RadioButton
-                        android:id="@+id/radio_nao_era_veiculo_proprio"
+                    <EditText
+                        android:id="@+id/edit_text_kms_percorridos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="(abrir Calc)"
+                        android:background="@drawable/rounded"
+                        android:inputType="numberDecimal"
+                        android:textAlignment="center"/>
 
-                        android:text="Não" />
-                </RadioGroup>
+                </LinearLayout>
 
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_foi_em_veiculo_proprio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_horas_de_trabalho"
+
+                        android:text="Foi em veículo proprio?" />
+
+                    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_sim_veiculo_proprio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Sim" />
+
+                        <RadioButton
+                            android:id="@+id/radio_nao_era_veiculo_proprio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Não" />
+                    </RadioGroup>
+
+
+                </LinearLayout>
 
             </LinearLayout>
+
+
+
+
+
             <TextView
                 android:id="@+id/textview_Autonomia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="8dp"
                 android:text="Autonomia"
                 android:textSize="19dp" />
-
             <LinearLayout
                 android:id="@+id/linearLayout_autonomia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="30dp">
+                android:background="@drawable/rounded"
+                android:orientation="vertical">
 
-                <TextView
 
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_trajeto_kms"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp">
 
-                    android:text="Km por litro" />
 
-                <EditText
-                    android:id="@+id/edit_text_autonomia_do_veiculo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="KMs por litro"
-                    android:inputType="numberDecimal" />
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_trajeto_kms"
+
+                        android:text="Km por litro"
+                        android:padding="8dp"/>
+
+                    <EditText
+                        android:id="@+id/edit_text_autonomia_do_veiculo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="KMs por litro"
+                        android:background="@drawable/rounded"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
             </LinearLayout>
 
-
-            <LinearLayout
-                android:id="@+id/linearLayout_qtd_unidades_compradas"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_km_for_liter"
-
-                    android:text="QTD de unidades compradas: " />
-
-                <EditText
-                    android:id="@+id/edit_text_qtd_unidades"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="0000"
-                    android:inputType="numberDecimal" />
-
-            </LinearLayout>
-
+                android:gravity="center"
+                android:text="Compra:"
+                android:textSize="22dp" />
             <LinearLayout
-                android:id="@+id/linearLayout_preco_unidade_comprada"
+                android:id="@+id/linearLayout_compra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
+                android:background="@drawable/rounded"
+                android:orientation="vertical">
 
-                <TextView
 
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_qtd_unidades_compradas"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_km_for_liter"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
 
-                    android:text="Preço por Undidade de Medida" />
+                    <TextView
 
-                <EditText
-                    android:id="@+id/edit_text_preco_por_unidade_de_medida"
-                    android:layout_width="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_km_for_liter"
+                        android:padding="8dp"
+
+                        android:text="QTD de unidades compradas: " />
+
+                    <EditText
+                        android:id="@+id/edit_text_qtd_unidades"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@drawable/rounded"
+                        android:hint="0000"
+                        android:layout_marginTop="8dp"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_preco_unidade_comprada"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:inputType="numberDecimal" />
+                    android:layout_marginLeft="30dp"
+                    android:padding="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp">
 
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_km_for_liter"
+                        android:layout_marginRight="8dp"
+
+                        android:text="(*) Preço por Undidade de Medida" />
+
+                    <EditText
+                        android:id="@+id/edit_text_preco_por_unidade_de_medida"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:background="@drawable/rounded"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
             </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+
                 android:orientation="vertical">
 
                 <TextView
@@ -610,37 +692,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/text_km_for_liter"
-                    android:textSize="18dp"
-                    android:gravity="center"
                     android:layout_marginTop="8dp"
-                    android:text="Custo de Recursos Consumidos" />
+                    android:gravity="center"
+                    android:text="Recursos Consumidos com Deslocamento"
+                    android:textSize="19dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:padding="8dp"
                         android:text="R$"
+
                         android:textSize="22dp"
 
+                        />
+
+                    <TextView
+                        android:id="@+id/textview_custo_de_recursos_consumidos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="Calcule"
                         android:padding="8dp"
+                        android:textSize="22dp"
 
                         />
-                    <TextView
-                    android:id="@+id/textview_custo_de_recursos_consumidos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="Calcule"
-                    android:textSize="22dp"
-                    android:padding="8dp"
-
-                    />
 
                 </LinearLayout>
 
@@ -650,235 +734,260 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TOTAL"
                 android:gravity="center"
-                android:textSize="30dp"/>
-
+                android:text="TOTAL APORTADO"
+                android:textSize="28dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:background="@drawable/rounded"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_liquido"
-                    android:text="Valor do Aporte"
-                    android:textSize="20dp"
-                    />
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" R$ "
-                    android:textSize="20dp"
-
-                    />
-
-                <TextView
-                    android:id="@+id/textview_valor_do_aporte"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calcule"
-                    android:textSize="20dp"
-
-                     />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Comprovantes:"
-                android:gravity="center"
-                android:textSize="19dp"
-                />
-            <LinearLayout
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:orientation="horizontal">
-                <TextView
+                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Comprovante:"
-                    android:gravity="center"
-                    android:textSize="19dp"
-                    />
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="Upload de Comprovante"
-                    android:inputType="numberDecimal" />
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" R$ "
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:textSize="24dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textview_valor_do_aporte"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Calcule"
+                        android:layout_weight="1"
+                        android:textSize="24dp"
+
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mídia"
                 android:gravity="center"
-                android:textSize="19dp"
-                />
+                android:text="Comprovantes:"
+                android:textSize="19dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
+                android:orientation="vertical"
+                android:background="@drawable/rounded">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Comprovante:"
+                        android:textSize="19dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="Upload de Comprovante"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
                 <TextView
-                    android:id="@+id/text_audio"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Mídia"
+                    android:textSize="19dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:id="@+id/text_audio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
 
 
-                    android:text="Gravar Audio" />
+                        android:text="Gravar Audio" />
 
 
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
 
+                    <TextView
+                        android:id="@+id/text_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:text="Gravar Vídeo" />
+
+                    <VideoView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Upload de Video"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:id="@+id/text_video"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
 
 
-                    android:text="Gravar Vídeo" />
 
-                <VideoView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Upload de Video"
-                    android:inputType="numberDecimal" />
 
-            </LinearLayout>
+
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="GANHOS"
-                android:textSize="36dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/black"
-
+                android:text="GANHOS COM ESTE INVESTIMENTO"
+                android:textSize="28dp"
                 />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_preco_de_compra"
-                    android:text="Preço/Venda/Pretendido" />
-
-                <EditText
-                    android:id="@+id/edit_text_preco_pretendido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Pretenção de Venda"
-                    android:inputType="numberDecimal" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Preço de venda" />
-
-                <EditText
-                    android:id="@+id/edit_text_preco_realizado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Preço Realizado"
-                    android:inputType="numberDecimal" />
-
-
-            </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="@drawable/rounded"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_lucro"
-                    android:text="Pontos" />
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="30dp">
 
-                <EditText
-                    android:id="@+id/edit_text_pontos"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_preco_de_compra"
+                        android:text="Preço/Venda/Pretendido" />
+
+                    <EditText
+                        android:id="@+id/edit_text_preco_pretendido"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Pretenção de Venda"
+                        android:inputType="numberDecimal" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="Pontos"
-                    android:inputType="numberDecimal" />
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Preço de venda" />
+
+                    <EditText
+                        android:id="@+id/edit_text_preco_realizado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Preço Realizado"
+                        android:inputType="numberDecimal" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_lucro"
+                        android:text="Pontos" />
+
+                    <EditText
+                        android:id="@+id/edit_text_pontos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="Pontos"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_pontos"
+                        android:text="Milhas" />
+
+                    <EditText
+                        android:id="@+id/edit_text_milhas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="Milhas"
+                        android:inputType="numberDecimal" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_pontos"
-                    android:text="Milhas" />
-
-                <EditText
-                    android:id="@+id/edit_text_milhas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="Milhas"
-                    android:inputType="numberDecimal" />
 
 
-            </LinearLayout>
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -888,10 +997,12 @@
                     android:id="@+id/button_calcular_ganhos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/black"
                     android:text="Calcular Ganhos"
-                    android:textSize="26dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:textColor="@color/white"
-                    android:backgroundTint="@color/black"/>
+                    android:textSize="26dp" />
 
             </LinearLayout>
 
@@ -901,12 +1012,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:background="@drawable/rounded"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bruto" />
+                    android:text="Bruto"
+                    android:padding="8dp"/>
 
                 <EditText
 
@@ -914,7 +1027,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
+                    android:textAlignment="center"
+                    android:textSize="28dp"
                     android:enabled="false"
                     android:inputType="numberDecimal" />
 
@@ -925,12 +1039,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
+                android:background="@drawable/rounded"
                 android:layout_marginRight="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Líquido" />
+                    android:text="Líquido"
+                    android:padding="8dp"/>
 
                 <EditText
                     android:id="@+id/edit_text_liquido"
@@ -938,6 +1054,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:enabled="false"
+                    android:textSize="28dp"
+                    android:textAlignment="center"
                     android:inputType="numberDecimal" />
 
 
