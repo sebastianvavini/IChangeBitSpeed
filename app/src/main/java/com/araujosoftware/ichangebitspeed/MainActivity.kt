@@ -97,11 +97,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         custoDoTempoAplicado.setOnClickListener(this)
         binding.radioSimDeslocamento.setOnClickListener(this)
         binding.radioNaoDeslocamento.setOnClickListener(this)
-        binding.radioNaoPagou.setOnClickListener(this)
-        binding.radioSimPagou.setOnClickListener(this)
+
         binding.textviewCustoDeRecursosConsumidos.setOnClickListener(this)
         valorDoAporte.setOnClickListener(this)
         botaoCalcularGanhos.setOnClickListener(this)
+        binding.radioNaoEraVeiculoProprio.setOnClickListener(this)
 
     }
 
@@ -130,18 +130,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         }
-
-        if (p.id == R.id.radio_nao_pagou) {
-            binding.linearLayoutQtdUnidadesCompradas.isVisible = false
-            binding.linearLayoutPrecoUnidadeComprada.isVisible = false
-            binding.editTextQtdUnidades.setText("0")
-            calculeCustoDeRecursosConsumidos()
-
+        if(p.id==R.id.radio_nao_era_veiculo_proprio){
+            binding.linearLayoutAutonomia.isVisible=false
         }
-        if (p.id == R.id.radio_sim_pagou) {
-            binding.linearLayoutQtdUnidadesCompradas.isVisible = true
-            binding.linearLayoutPrecoUnidadeComprada.isVisible = true
-        }
+
+
         if (p.id == R.id.textview_custo_de_recursos_consumidos) {
             calculeCustoDeRecursosConsumidos()
         }
