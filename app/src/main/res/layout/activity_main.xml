@@ -8,37 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black">
 
-        <TextView
-
-            android:id="@+id/text_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:gravity="right"
-            android:padding="16dp"
-            android:text="Faça Login."
-            android:textColor="@color/yellow"
-            android:textSize="20dp" />
-
-        <TextView
-
-            android:id="@+id/text_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:gravity="right"
-            android:padding="16dp"
-            android:text="22 de Junho de 2022"
-            android:textColor="@color/yellow"
-            android:textSize="18dp" />
-
-
-    </LinearLayout>
 
 
     <ScrollView
@@ -52,6 +22,38 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black">
+
+                <TextView
+
+                    android:id="@+id/text_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:gravity="right"
+                    android:padding="16dp"
+                    android:text="Faça Login."
+                    android:textColor="@color/yellow"
+                    android:textSize="20dp" />
+
+                <TextView
+
+                    android:id="@+id/text_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:gravity="right"
+                    android:padding="16dp"
+                    android:text="22 de Junho de 2022"
+                    android:textColor="@color/yellow"
+                    android:textSize="18dp" />
+
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -600,14 +602,43 @@
                         android:background="@drawable/rounded"
                         android:inputType="numberDecimal" />
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayout_preco_unidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:padding="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="30dp">
 
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_km_for_liter"
+                        android:layout_marginRight="8dp"
+
+                        android:text="(*) Preço por litro de Combustível" />
+
+                    <EditText
+
+                        android:id="@+id/edit_text_preco_por_litro_combustivel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        android:background="@drawable/rounded"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Compra:"
+                android:text="Compra Adicional:"
                 android:textSize="22dp" />
             <LinearLayout
                 android:id="@+id/linearLayout_compra"
@@ -666,7 +697,7 @@
                         android:text="(*) Preço por Undidade de Medida" />
 
                     <EditText
-                        android:id="@+id/edit_text_preco_por_unidade_de_medida"
+                        android:id="@+id/edit_text_preco_por_unidade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -817,6 +848,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:background="@drawable/rounded"
                         android:hint="Upload de Comprovante"
                         android:inputType="numberDecimal" />
 
@@ -908,6 +940,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded"
                         android:hint="Pretenção de Venda"
                         android:inputType="numberDecimal" />
 
@@ -922,13 +955,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Preço de venda" />
+                        android:text="Preço de venda"
+                        android:layout_marginRight="8dp"/>
 
                     <EditText
                         android:id="@+id/edit_text_preco_realizado"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded"
                         android:hint="Preço Realizado"
                         android:inputType="numberDecimal" />
 
@@ -944,6 +979,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text_lucro"
+                        android:layout_weight="1"
                         android:text="Pontos" />
 
                     <EditText
@@ -951,6 +987,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/rounded"
                         android:gravity="center"
                         android:hint="Pontos"
                         android:inputType="numberDecimal" />
@@ -966,6 +1003,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/text_pontos"
+                        android:layout_weight="1"
                         android:text="Milhas" />
 
                     <EditText
@@ -974,6 +1012,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:background="@drawable/rounded"
                         android:hint="Milhas"
                         android:inputType="numberDecimal" />
 

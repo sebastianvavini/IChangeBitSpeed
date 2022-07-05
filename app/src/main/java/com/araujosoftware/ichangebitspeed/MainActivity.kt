@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var horasDeTrabalho: EditText
     private lateinit var diasDeTrabalho: EditText
     private lateinit var precoDaHora: EditText
-    private lateinit var precoUnidadeMedida: EditText
+    private lateinit var precoLitroDeCombustivel: EditText
+    private  lateinit var precoUnidadeDeMedida:EditText
 
     private lateinit var totalDeKMsPercorridos: EditText
     private lateinit var vezesPercorridas: EditText
@@ -70,7 +71,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         custoDeRecursosConsumidos = binding.textviewCustoDeRecursosConsumidos
         precoPretendido = binding.editTextPrecoPretendido
-        precoUnidadeMedida = binding.editTextPrecoPorUnidadeDeMedida
+        precoLitroDeCombustivel = binding.editTextPrecoPorLitroCombustivel
+        precoUnidadeDeMedida=binding.editTextPrecoPorUnidade
         pontos = binding.editTextPontos
         milhas = binding.editTextMilhas
 
@@ -131,11 +133,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         }
-        if(p.id==R.id.radio_nao_era_veiculo_proprio){
-            binding.linearLayoutAutonomia.isVisible=false
+        if (p.id == R.id.radio_nao_era_veiculo_proprio) {
+            binding.linearLayoutAutonomia.isVisible = false
         }
-        if(p.id==R.id.radio_sim_veiculo_proprio){
-            binding.linearLayoutAutonomia.isVisible=true
+        if (p.id == R.id.radio_sim_veiculo_proprio) {
+            binding.linearLayoutAutonomia.isVisible = true
         }
 
 
@@ -150,7 +152,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             calcularGanhos()
         }
     }
-    private fun calculeValorDoAporte(){
+
+    private fun calculeValorDoAporte() {
 
         println("VALOR DO APORTE CALCULANDO...")
         var horasTrab = calculeCustoDeTempoAplicado()
@@ -164,48 +167,56 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun calculeCustoDeRecursosConsumidos(): Double {
+
+
         var trajeto = 0.00
-
-        var qtd_unid_compr = 0.00
-        var preco_unidade = 0.01
-
+        var preco_litro = 0.01
         var autonomia = 0.01
+
+        var qtd_unid_compr = 0.0
+        var preco_unidade_adicional_compr = 0.01
+
+
         var resultado = 0.00
 
         if (totalDeKMsPercorridos.text.toString() != "" &&
             qtdUnidades.text.toString() != "" &&
-            precoUnidadeMedida.text.toString() != "" &&
+            precoLitroDeCombustivel.text.toString() != "" &&
             autonomiaDoVeiculo.text.toString() != "" && qtdUnidades.text.toString() != ""
         ) {
 
             trajeto = totalDeKMsPercorridos.text.toString().toDouble()
-
-            qtd_unid_compr = qtdUnidades.text.toString().toDouble()
-            preco_unidade = precoUnidadeMedida.text.toString().toDouble()
-
             autonomia = autonomiaDoVeiculo.text.toString().toDouble()
+
+            preco_unidade_adicional_compr = qtdUnidades.text.toString().toDouble()
+            preco_litro = precoLitroDeCombustivel.text.toString().toDouble()
+
+
 
             if (autonomia == 0.0) {
                 Toast.makeText(this, "Automia deve ser maior que zero", Toast.LENGTH_LONG).show()
             }
             if (autonomia != 0.01 && trajeto != 0.0) {
 
-                println("##### atenção aqui")
+                println("##### atenção aqui  if (autonomia != 0.01 && trajeto != 0.0)")
 
-                println(preco_unidade)
-                println(qtd_unid_compr)
                 println(trajeto)
+                println(preco_litro)
                 println(autonomia)
+                println(preco_unidade_adicional_compr)
+
+
 
                 trajeto = totalDeKMsPercorridos.text.toString().toDouble()
                 qtd_unid_compr = qtdUnidades.text.toString().toDouble()
-                preco_unidade = precoUnidadeMedida.text.toString().toDouble()
+                preco_litro = precoLitroDeCombustivel.text.toString().toDouble()
 
                 autonomia = autonomiaDoVeiculo.text.toString().toDouble()
 
 
 
-                resultado =  (preco_unidade * trajeto / autonomia)+qtd_unid_compr*preco_unidade
+                resultado =
+                    (preco_litro * trajeto / autonomia) + qtd_unid_compr * preco_unidade_adicional_compr
                 // removido devido o fato do que é comprado é convertido em combustivel e não é consumo
 
 
@@ -218,25 +229,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             if (autonomia == 0.01 && trajeto == 0.0) {
-                if (qtdUnidades.text.toString() != "" && precoUnidadeMedida.text.toString() != "") {
-                    qtd_unid_compr = qtdUnidades.text.toString().toDouble()
+                if (qtdUnidades.text.toString() != "" && precoLitroDeCombustivel.text.toString() != "") {
 
-                    preco_unidade = precoUnidadeMedida.text.toString().toDouble()
+                    qtd_unid_compr = qtdUnidades.text.toString().toDouble()
+                    preco_litro = precoLitroDeCombustivel.text.toString().toDouble()
                 }
 
                 println(" if(autonomia ==0.01 && trajeto==0.0){")
-                println("preço da unidade ${preco_unidade}")
+                println("preço da unidade ${preco_litro}")
                 println(" qtd: ${qtd_unid_compr}")
 
 
-                resultado = qtd_unid_compr * preco_unidade
+                resultado = qtd_unid_compr * preco_unidade_adicional_compr
                 println("########  Resultado igual a: ${resultado}")
 
                 var formatado = "%.2f".format(resultado)
                 var valorString = "R$ ${formatado}"
                 custoDeRecursosConsumidos.setText(valorString)
             }
-
 
 
         } else {
@@ -283,9 +293,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             ganhoBruto = binding.editTextPrecoRealizado.text.toString().toDouble()
 
 
-            var custos= custoDeRecursosConsumidos.text.toString().toDouble()
+            var custos = custoDeRecursosConsumidos.text.toString().toDouble()
 
-            if(custoDeRecursosConsumidos.text.toString()!=""){
+            if (custoDeRecursosConsumidos.text.toString() != "") {
                 ganhoLiquido = ganhoBruto - custos
                 println(" O ganho liquido é de:  ${ganhoLiquido}")
             }
