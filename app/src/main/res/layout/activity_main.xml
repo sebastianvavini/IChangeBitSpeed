@@ -269,6 +269,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded"
                 android:orientation="vertical"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 >
 
                 <LinearLayout
@@ -444,6 +446,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp"
                 android:background="@drawable/rounded">
 
 
@@ -571,7 +575,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp">
 
 
 
@@ -646,7 +652,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp">
 
 
 
@@ -654,8 +662,8 @@
                     android:id="@+id/linearLayout_qtd_unidades_compradas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp">
+
+                    >
 
                     <TextView
 
@@ -674,6 +682,7 @@
                         android:gravity="center"
                         android:background="@drawable/rounded"
                         android:hint="0000"
+                        android:layout_marginRight="8dp"
                         android:layout_marginTop="8dp"
                         android:inputType="numberDecimal" />
 
@@ -683,10 +692,10 @@
                     android:id="@+id/linearLayout_preco_unidade_comprada"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+
                     android:padding="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="30dp">
+                   >
 
                     <TextView
 
@@ -773,7 +782,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp">
 
 
 
@@ -826,7 +837,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/rounded">
+                android:background="@drawable/rounded"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -922,7 +935,9 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1057,6 +1072,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/rounded"
                 android:orientation="horizontal">
 
