@@ -1,6 +1,8 @@
 package com.araujosoftware.ichangebitspeed
 
-class Eu : Investimento() {
+
+
+class Eu() : Investimento() {
 
     /** Lista de Habilidades*/
     private var hab1 : Habilidade= Habilidade("Programação em Kótlin")
@@ -17,11 +19,13 @@ class Eu : Investimento() {
     private var quadroScrum:Pertence=Pertence()
 
    /** Lista de "amigos" (Investimentos)*/
+   var listaInvestimento= listOf<Investimento>()
+    /** Conjunto de "amigos" (Investimentos)*/
+    var setInvestimento= setOf<Investimento>()
+
     private var investimento1:Eu= Eu()
     private var investimento2:Eu= Eu()
     private var investimento3:Eu= Eu()
-
-
 
 
     fun iNeed(){
@@ -33,8 +37,14 @@ class Eu : Investimento() {
     fun iDonated(){
 
     }
-
-    fun somarInvestimentos(){
+    fun adicionarInvestimento(investimento: Investimento){
 
     }
+
+    fun somarInvestimentos(){
+        val soma= investimento1.getLiquido()+investimento2.getLiquido()+investimento3.getLiquido()
+
+    }
+
+
 }

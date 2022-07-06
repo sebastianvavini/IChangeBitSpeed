@@ -107,6 +107,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.radioSimVeiculoProprio.setOnClickListener(this)
 
     }
+    private fun naoHouveDeslocamento(){
+        println(" Some Perguntas desnecessarias")
+        binding.linearLayoutTrajeto.isVisible = false
+        binding.linearlayoutFoiEmVeiculoProprio.isVisible = false
+        binding.textviewAutonomia.isVisible = false
+        binding.linearLayoutAutonomia.isVisible = false
+        binding.editTextKmsPercorridos.setText("0")
+    }
+    private fun houveDeslocamento(){
+        binding.linearLayoutTrajeto.isVisible = true
+        binding.linearlayoutFoiEmVeiculoProprio.isVisible = true
+        binding.textviewAutonomia.isVisible = true
+        binding.linearLayoutAutonomia.isVisible = true
+    }
 
     override fun onClick(p: View) {
         if (p.id == R.id.image_save) {
@@ -117,21 +131,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             calculeCustoDeTempoAplicado()
         }
         if (p.id == R.id.radio_sim_deslocamento) {
-            binding.linearLayoutTrajeto.isVisible = true
-            binding.linearlayoutFoiEmVeiculoProprio.isVisible = true
-            binding.textviewAutonomia.isVisible = true
-            binding.linearLayoutAutonomia.isVisible = true
+            houveDeslocamento()
         }
         if (p.id == R.id.radio_nao_deslocamento) {
-
-            println(" Some Perguntas desnecessarias")
-            binding.linearLayoutTrajeto.isVisible = false
-            binding.linearlayoutFoiEmVeiculoProprio.isVisible = false
-            binding.textviewAutonomia.isVisible = false
-            binding.linearLayoutAutonomia.isVisible = false
-            binding.editTextKmsPercorridos.setText("0")
-
-
+            naoHouveDeslocamento()
         }
         if (p.id == R.id.radio_nao_era_veiculo_proprio) {
             binding.linearLayoutAutonomia.isVisible = false
@@ -153,19 +156,31 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun calculeValorDoAporte() {
 
-        println("VALOR DO APORTE CALCULANDO...")
-        var horasTrab = calculeCustoDeTempoAplicado()
-        var consumo = calculeCustoDeRecursosConsumidos()
+    private fun calculeCustoDeTempoAplicado(): Double {
 
-        var resultado = horasTrab + consumo
-        var formatadoStr = "%.2f".format(resultado)
+        var dias = 0.00
+        var horas = 0.00
+        var precoHora = 0.00
+        var resultado = (dias * horas * precoHora)
 
 
-        valorDoAporte.setText(formatadoStr)
+        if (diasDeTrabalho.text.toString() != "" &&
+            horasDeTrabalho.text.toString() != "" &&
+            diasDeTrabalho.text.toString() != ""
+        ) {
+
+            dias = diasDeTrabalho.text.toString().toDouble()
+            horas = horasDeTrabalho.text.toString().toDouble()
+            precoHora = precoDaHora.text.toString().toDouble()
+            resultado = (dias * horas * precoHora)
+
+        }
+
+        var formatado = "%.2f".format(resultado)
+        custoDoTempoAplicado.setText(formatado)
+        return resultado
     }
-
     private fun calculeCustoDeRecursosConsumidos(): Double {
 
 
@@ -258,32 +273,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         return resultado
     }
+    private fun calculeValorDoAporte() {
 
-    private fun calculeCustoDeTempoAplicado(): Double {
+        println("VALOR DO APORTE CALCULANDO...")
+        var horasTrab = calculeCustoDeTempoAplicado()
+        var consumo = calculeCustoDeRecursosConsumidos()
 
-        var dias = 0.00
-        var horas = 0.00
-        var precoHora = 0.00
-        var resultado = (dias * horas * precoHora)
+        var resultado = horasTrab + consumo
+        var formatadoStr = "%.2f".format(resultado)
 
 
-        if (diasDeTrabalho.text.toString() != "" &&
-            horasDeTrabalho.text.toString() != "" &&
-            diasDeTrabalho.text.toString() != ""
-        ) {
-
-            dias = diasDeTrabalho.text.toString().toDouble()
-            horas = horasDeTrabalho.text.toString().toDouble()
-            precoHora = precoDaHora.text.toString().toDouble()
-            resultado = (dias * horas * precoHora)
-
-        }
-
-        var formatado = "%.2f".format(resultado)
-        custoDoTempoAplicado.setText(formatado)
-        return resultado
+        valorDoAporte.setText(formatadoStr)
     }
-
     private fun calcularGanhos() {
 
         var ganhoBruto = 0.0
@@ -312,13 +313,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun salvar() {
 
         val invest = Investimento()
+        val eu= Eu()
 
         invest.setNome(nome.text.toString())
+
+      //  eu.adicionarInvestimento()
+        eu.somarInvestimentos()
 
 
 
         if (custoDeRecursosConsumidos.text.toString() != "") {
             invest.setPrecoDeCompra(custoDeRecursosConsumidos.text.toString().toDouble())
+
         }
         if (precoPretendido.text.toString() != "")
             invest.setPrecoDeVenda(precoPretendido.text.toString().toDouble())
@@ -334,7 +340,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         if (precoDaHora.text.toString() != "")
             invest.setPrecoDaHora(precoDaHora.text.toString().toDouble())
-
 
         invest.calculaTotais()
         acumulado.setText(invest.getAcumulado().toString())
