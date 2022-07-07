@@ -625,7 +625,8 @@
                         android:layout_below="@+id/text_km_for_liter"
                         android:layout_marginRight="8dp"
 
-                        android:text="(*) Preço por litro de Combustível" />
+
+                        android:text="(*) Preço por litro: " />
 
                     <EditText
 
@@ -633,6 +634,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+
                         android:gravity="center"
 
                         android:background="@drawable/rounded"

@@ -7,7 +7,7 @@ open class Investimento {
     private var liquido:Double=0.0
     private var precoDeCompra:Double=0.0
 
-    private var precoPretendido:Double=0.0
+    private var precoPretendidoDeVenda:Double=0.0
     private var precoDeVenda:Double=0.0
 
     private var lucro:Double=0.0
@@ -25,6 +25,7 @@ open class Investimento {
     private var autonomiaDoVeiculo:Double=0.1
     private var distanciaPercorrida:Double=0.0
     private var vezesPercorridas:Double=0.0
+
     private var houveDeslocamento:Boolean=true
 
 
@@ -46,7 +47,7 @@ open class Investimento {
     } */
     fun calculaTotais(){
 
-        precoPretendido
+        precoPretendidoDeVenda
         precoDeVenda= diasDeTrabalho*horasDeTrabalho*precoDaHora
         precoDeCompra=qtdLitrosComprados*precoDoLitro*distanciaPercorrida*vezesPercorridas/autonomiaDoVeiculo
         this.bruto= precoDeVenda - precoDeCompra //somar com todos os bens inventariados
