@@ -4,28 +4,23 @@ package com.araujosoftware.ichangebitspeed
 
 class Eu() : Investimento() {
 
-    /** Lista de Habilidades*/
-    private var hab1 : Habilidade= Habilidade("Programação em Kótlin")
-    private var hab2: Habilidade= Habilidade("Matemática")
-    private var hab3:Habilidade= Habilidade("Tocar bateria")
+    var habilidades: MutableSet<Habilidade> = mutableSetOf()
 
-    /** Lista de Compromissos*/
-    private var pensaoAlimenticia:Compromisso= Compromisso("Pensao Alimenticia","dia 1, julho")
-    private var creditoNubank:Compromisso=Compromisso("Pagamento da Fatura Nubank","")
-    private var consignadoBB:Compromisso=Compromisso("consignado","74 vezes de R$ 1561,75")
-    /** Lista de Pertences*/
-    private var carro:Pertence= Pertence()
-    private var notebook:Pertence= Pertence()
-    private var quadroScrum:Pertence=Pertence()
+    var compromissos:MutableSet<Compromisso> = mutableSetOf()
 
-   /** Lista de "amigos" (Investimentos)*/
-   var listaInvestimento= listOf<Investimento>()
-    /** Conjunto de "amigos" (Investimentos)*/
-    var setInvestimento= setOf<Investimento>()
+    var pertences: MutableSet <Pertence> = mutableSetOf()
 
-    private var investimento1:Eu= Eu()
-    private var investimento2:Eu= Eu()
-    private var investimento3:Eu= Eu()
+    fun adicionaPertence (pertence: Pertence){
+        pertences.add(pertence)
+    }
+
+
+
+    var investimentos:MutableSet<Investimento> = mutableSetOf()
+    fun adicionarInvestimento(investimento: Investimento){
+            investimentos.add(investimento)
+    }
+
 
 
     fun iNeed(){
@@ -37,12 +32,10 @@ class Eu() : Investimento() {
     fun iDonated(){
 
     }
-    fun adicionarInvestimento(investimento: Investimento){
 
-    }
 
     fun somarInvestimentos(){
-        val soma= investimento1.getLiquido()+investimento2.getLiquido()+investimento3.getLiquido()
+       // val soma= investimento1.getLiquido()+investimento2.getLiquido()+investimento3.getLiquido()
 
     }
 
